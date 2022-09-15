@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    /*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve media defaults */
+
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Remove built-in form typography styles */
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Create Custom Scroll-Bar */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #c5cadf;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #70768a;
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #454f6b;
+}
+
+/* CSS Custom Property */
+
+:root {
+    --dark-mode-elements: hsl(209, 23%, 22%);
+    --dark-mode-bg: hsl(207, 26%, 17%);
+    --light-mode-text: hsl(200, 15%, 8%);
+    --light-mode-input: hsl(0, 0%, 52%);
+    --light-mode-background: hsl(0, 0%, 98%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    background-color: var(--light-mode-background);
+    color: var(--light-mode-text);
+    transition: 0.182s;
+}
+
+/** Common CSS Classes */
+
+body.dark {
+    background-color: var(--dark-mode-bg);
+    color: var(--white);
+}
+
+body.dark nav,
+body.dark nav button,
+body.dark .card,
+body.dark #search-country,
+body.dark #filter,
+body.dark #back-previous-page,
+body.dark .border {
+    background-color: var(--dark-mode-elements) !important;
+    color: var(--white) !important;
+}
+
+body.dark nav a {
+    color: var(--white) !important;
+}
+
+body.dark #filter+ul {
+    background-color: var(--dark-mode-elements);
+}
+
+body.dark #filter+ul li a {
+    color: var(--white);
+}
+
+body.dark #filter+ul li:hover a {
+    background-color: var(--dark-mode-bg);
+}
+
+/** Search & Filter */
+
+#search-country {
+    padding-left: 5rem !important;
+}
+
+#search-icon {
+    position: absolute;
+    top: 48%;
+    left: 40px;
+    transform: translateY(-48%);
+    font-size: 22px;
+}
+
+/** Spinner */
+
+#spinner {
+    display: none;
+    pointer-events: none;
+    width: 3.5em;
+    height: 3.5em;
+    border: 0.4em solid transparent;
+    border-color: #256d85;
+    border-top-color: #2b4865;
+    border-radius: 50%;
+    animation: loading-spinner 1s linear infinite;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes loading-spinner {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/** Main Section: Display All Country */
+
+.country-img {
+    height: 210px;
+    width: 100%;
+}
+
+#country-container h6 {
+    font-weight: bold;
+    padding: 5px 0;
+}
+
+#country-container h6 span {
+    font-weight: normal;
+}
+
+.card {
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+/** Country.HTML page Styling */
+
+.country-detail img {
+    width: 100%;
+    height: 350px;
+}
+
+body.dark div.country-detail#country-container .card {
+    color: var(--white) !important;
+    background-color: var(--dark-mode-bg) !important;
+}
+
+/** Display Border Countries */
+
+.border {
+    /* background-color: #fff; */
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+}
+
+/** Media Query */
+
+@media (max-width: 576px) {
+    .navbar a,
+    .navbar button {
+        font-size: 1.1rem !important;
+    }
+    .country-detail img {
+        height: 230px;
+    }
+}
